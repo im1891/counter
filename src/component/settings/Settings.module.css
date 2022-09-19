@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+}
+
+.counterSettings {
+    display: flex;
+    width: 300px;
+    height: 195px;
+    border: 2px solid cyan;
+    background-color: #38384f;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    height: 100px;
+    width: 275px;
+    border: 2px solid cyan;
+    border-radius: 5px;
+}
+
+.options .item {
+    display: flex;
+    width: inherit;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.input {
+    text-align: center;
+    color: #38384f;
+    font-weight: bold;
+    background-color: cyan;
+    border: 2px solid #38384f;
+}
+
+.input:focus {
+    outline: none;
+    border: 3px solid cyan;
+    background-color: #38384f;
+    color: cyan;
+}
+
+.item span {
+    color: cyan;
+}
+
+.buttonBlockWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 275px;
+    height: 50px;
+    border: 2px solid cyan;
+    border-radius: 5px;
+}
+
+.settingButtonStyle {
+    height: 35px;
+    width: 100px;
+    background-color: cyan;
+    border: 2px solid #38384f;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #38384f;
+}
+
+.settingButtonStyle:hover {
+    background-color: #38384f;
+    border-color: cyan;
+    color: cyan;
+}
+
+.settingButtonStyle:disabled {
+    background-color: gray;
+    border-color: gray;
+    color: white;
+    opacity: 0.4;
+}
+
+.error {
+    border: 3px solid #ff0000;
+    background-color: rgb(248, 151, 151);
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}
+
+.error:focus {
+    border: 3px solid #ff0000;
+    background-color: rgb(248, 151, 151);
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    outline: none;
+
+}
+
+

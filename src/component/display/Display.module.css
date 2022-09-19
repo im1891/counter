@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.display {
+    display: flex;
+    border: 2px solid cyan;
+    width: 275px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: cyan;
+    color: #38384f;
+    font-size: 50px;
+
+}
+
+
+.textValue {
+    font-size: 20px;
+}
+
+.enough {
+    color: red;
+    font-size: 60px;
+    font-weight: bold;
+
+}
+.error {
+    background-color:  #38384f;
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+}
