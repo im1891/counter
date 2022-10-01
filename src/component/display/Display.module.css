@@ -2,9 +2,9 @@
     box-sizing: border-box;
 }
 
-
 .display {
     display: flex;
+    font-size: 50px;
     border: 2px solid cyan;
     width: 275px;
     height: 100px;
@@ -13,13 +13,6 @@
     border-radius: 5px;
     background-color: cyan;
     color: #38384f;
-    font-size: 50px;
-
-}
-
-
-.textValue {
-    font-size: 20px;
 }
 
 .enough {
@@ -28,9 +21,14 @@
     font-weight: bold;
 
 }
+
 .error {
     background-color:  #38384f;
     color: red;
     font-weight: bold;
+    font-size: 20px;
+}
+
+.message{
     font-size: 20px;
 }

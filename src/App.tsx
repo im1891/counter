@@ -6,22 +6,34 @@ import Settings from "./component/settings/Settings";
 
 function App() {
 
-    const [counterValue, setCounterValue] = useState<number | string>('')
+    const [counterValue, setCounterValue] = useState<number | null>(null)
     const [minCounterValue, setMinCounterValue] = useState<number>(0)
-    const [maxCounterValue, setMaxCounterValue] = useState<number>(0)
+    const [maxCounterValue, setMaxCounterValue] = useState<number>(5)
     const [error, setError] = useState<string>('')
 
-    useEffect(() => {
-        !counterValue && setCounterValue('Enter values and press \'set\'')
-        let localStorageCounterValue = localStorage.getItem('counterValue')
-        localStorageCounterValue && setCounterValue(JSON.parse(localStorageCounterValue))
+    let message = counterValue === null ? 'Enter values and press \'set\'' : ''
 
+
+    useEffect(() => {
+        let data = localStorage.getItem('data')
+
+        if (data) {
+            setMinCounterValue(JSON.parse(data).minValue)
+            setMaxCounterValue(JSON.parse(data).maxValue)
+            setCounterValue(JSON.parse(data).count)
+        }
 
     }, [])
 
     useEffect(() => {
-        localStorage.setItem('counterValue', JSON.stringify(counterValue))
-    }, [counterValue])
+
+        let data = {
+            minValue: minCounterValue,
+            maxValue: maxCounterValue,
+            count: counterValue
+        }
+        localStorage.setItem('data', JSON.stringify(data))
+    }, [minCounterValue, maxCounterValue, counterValue])
 
 
     const resetCount = () => {
@@ -29,8 +41,10 @@ function App() {
     }
 
     const incrCounter = () => {
-        counterValue < maxCounterValue && typeof counterValue === 'number' && setCounterValue(counterValue + 1)
+        counterValue !== null && counterValue < maxCounterValue && setCounterValue(counterValue + 1)
+
     }
+
 
     return (
         <div className="appWrapper">
@@ -40,8 +54,9 @@ function App() {
                 setCounterValue={setCounterValue}
                 setError={setError}
                 error={error}
-                counterValue={counterValue}
-            />
+                minCounterValue={minCounterValue}
+                maxCounterValue={maxCounterValue}
+                counterValue={counterValue}/>
 
             <Counter
                 error={error}
@@ -49,8 +64,8 @@ function App() {
                 resetCount={resetCount}
                 counterValue={counterValue}
                 minCounterValue={minCounterValue}
-                maxCounterValue={maxCounterValue}/>
-
+                maxCounterValue={maxCounterValue}
+                message={message}/>
         </div>
     );
 }

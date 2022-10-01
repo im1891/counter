@@ -7,10 +7,12 @@ import s from './Counter.module.css'
 type CounterPropsType = {
     incrCounter: () => void
     resetCount: () => void
-    counterValue: number | string
+    counterValue: number | null
     minCounterValue: number
     maxCounterValue: number
     error: string
+    message: string
+
 }
 
 const Counter: React.FC<CounterPropsType> = (props) => {
@@ -21,7 +23,8 @@ const Counter: React.FC<CounterPropsType> = (props) => {
         counterValue,
         minCounterValue,
         maxCounterValue,
-        error
+        error,
+        message,
     } = props
 
     return (
@@ -31,17 +34,18 @@ const Counter: React.FC<CounterPropsType> = (props) => {
                 counterValue={counterValue}
                 maxCounterValue={maxCounterValue}
                 error={error}
+                message={message}
             />
 
             <div className={s.buttonBlockWrapper}>
                 <Button
                     onClick={incrCounter}
-                    disabled={counterValue === maxCounterValue || typeof counterValue === 'string' || !!error}
+                    disabled={counterValue === maxCounterValue || counterValue === null || !!error || !!message }
                     className={s.counterButtonStyle}>inc</Button>
 
                 <Button
                     onClick={resetCount}
-                    disabled={counterValue === minCounterValue || typeof counterValue === 'string' || !!error}
+                    disabled={counterValue === minCounterValue || counterValue === null || !!error || !!message}
                     className={s.counterButtonStyle}>reset</Button>
             </div>
         </div>
