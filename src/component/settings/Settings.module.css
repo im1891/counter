@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     transition: 200ms ease-out;
-
+    border-radius: 5px;
 }
 
 .counterSettings:hover {
